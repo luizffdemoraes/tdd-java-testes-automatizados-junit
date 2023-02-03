@@ -14,7 +14,7 @@ class CalculadoraTest {
     }
 
     @Test
-    public void testeSomaCalculadora1() {
+    public void deveriaSomarDoisNumerosPositivos() {
 
         int soma = calculadora.somar(3, 7);
 
