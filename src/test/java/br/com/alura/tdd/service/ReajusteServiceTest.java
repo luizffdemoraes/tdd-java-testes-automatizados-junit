@@ -49,4 +49,25 @@ class ReajusteServiceTest {
 
         assertEquals(new BigDecimal("1200.00"), funcionario.getSalario());
     }
+
+    @Test
+    void bonusDevceriaSerZeroParaFuncionarioComSalarioMuitoAlto() {
+        BonusService service = new BonusService();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> service.calcularBonus(new Funcionario("Rodrigo", LocalDate.now(), new BigDecimal("25000"))));
+
+    }
+
+    @Test
+    void bonusDevceriaSerZeroParaFuncionarioComSalarioMuitoAlto2() {
+        BonusService service = new BonusService();
+        try {
+            service.calcularBonus(new Funcionario("Rodrigo", LocalDate.now(), new BigDecimal("25000")));
+            fail ("Não deu a exception!");
+        } catch (Exception e) {
+            assertEquals("Funcionario com salario maior do que R$10000 nao pode receber bonus!", e.getMessage());
+        }
+
+    }
 }
