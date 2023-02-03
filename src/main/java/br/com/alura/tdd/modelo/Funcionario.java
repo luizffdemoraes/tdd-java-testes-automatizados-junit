@@ -29,7 +29,7 @@ public class Funcionario {
 	}
 
 	public void reajustarSalario(BigDecimal reajuste) {
-		this.salario = this.salacrio.add(reajuste);
+		this.salario = this.salario.add(reajuste);
 		arredondarSalario();
 	}
 
